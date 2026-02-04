@@ -99,7 +99,7 @@ coloc_<Channel1>_<Channel2>_<ROIindex>.txt
 Each *.txt file is the saved “Log” window output from Coloc 2 for that ROI.
 
 1.3.4 Visualizing the results
-The results from the colocalization can be visualized using the loadColoc2Data.m MATLAB script. This script loads ROI-level Pearson colocalization values from the Fiji Coloc 2 output text files (the ones saved by your coloc2 Fiji macro), organizes them by well / experiment folder, and returns a matrix and boxplots (example in Figure 3).
+The results from the colocalization can be visualized using the loadColoc2Data.m MATLAB script. This script loads ROI-level Pearson colocalization values from the Fiji Coloc 2 output text files (the ones saved by your coloc2 Fiji macro), organizes them by well / experiment folder, and returns a matrix and boxplots.
 
 The script calls to the same additional helper functions as loadFijiData.m (see section 2.2.5), in addition to sortByToken.m.
 
@@ -110,15 +110,9 @@ Run the script.
 Select the output folder that contains the res_Condtion* folders.
 The user is prompted to Enter the File ID:.Enter the name of the channels as it appears in the coloc2 results files produced my the coloc2.ijm Fiji macro.
 Press enter.
-<figure>
-
-<p align="center"> <img src="Matlab_PCC_v2.png" width="300"> </p>
-<figcaption align="center"> Figure 3: Example plot of PCC values produced in MATLAB. The red line is the median and the black points are the individual PCC values for the ROIs from each condition. </figcaption> </figure>
 
 1.4 Radial averaging
 The radAv.ijm macro creates radially averaged synapse images by rotating each cropped ROI image through 0–359° and averaging the rotated stack. It then pools all radial averages within each condition and generates a condition-level average.
-
-<br>
 
 1.4.1 How the macro works
 For each cropped single-cell ROI image, the macro: 1. Opens the image. 2. Duplicates it 360 times and rotates each duplicate by n degrees (n = 0…359). 3. Converts the 360 rotated images into a stack and computes a Z-projection (Average Intensity). 4. Saves the result as a new image: *_radAv.tif. 5. After all cells are processed within a condition, it: + Opens all *_radAv.tif images for that condition. + Stacks them and saves: + Stack of all radial averages + Montage overview + Condition-level average (average intensity projection across all cells)
@@ -136,20 +130,13 @@ Fill in the dialog fields:
 Channel: channel prefix used in filenames (e.g., aCD3, Actin, K63)
 Parental folder ID: default res
 Condition folder ID: default Process
+
 1.4.3 Output
 For each individual ROI input file, the macro saves Cell_Channel*_radAv.tif in the corresponding fiji_Channel* folder. This file is the radially averaged image for that one cell/ROI.
 
-Once all *_radAv.tif images are generated and re-opened for a condition, the macro creates (Figure 4): + Channel*_radStack.tif: A stack containing all *_radAv.tif images pooled for that condition. + Channel*_radMontage.tif: A montage overview of the stack + Channel*_radTotAv.tif_radTotAv.tif: The condition-level average radial image.
-
-<figure>
-
-<p align="center"> <img src="Fiji_Stack.png" width="150"> <img src="Fiji_montage.png" width="175"> <img src="Fiji_totav.png" width="174"> </p>
-<figcaption align="center"> Figure 4: Radial averaging. Example of a (Left) stack, (Center) montage, and (Right) total average. </figcaption> </figure>
+Once all *_radAv.tif images are generated and re-opened for a condition, the macro creates: + Channel*_radStack.tif: A stack containing all *_radAv.tif images pooled for that condition. + Channel*_radMontage.tif: A montage overview of the stack + Channel*_radTotAv.tif_radTotAv.tif: The condition-level average radial image.
 
 1.4.4 Radial intensity profiles
-The intensity profiles of the individual ROI radial averages and the total average for the condition can be visualized in Fiji. 1. Open the desired radial average .tiff file. 2. Draw a line along the diameter of the radial average (Figure 5 - left). + Select the straight line tool. + Optional: To reduce noise, increase the line width to average across several pixels. + Double-click the line tool. + Set Line width (e.g., 3–10 pixels). 3. Plot the intensity profile (Figure 5 - right). + Analyze → Plot Profile
+The intensity profiles of the individual ROI radial averages and the total average for the condition can be visualized in Fiji. 1. Open the desired radial average .tiff file. 2. Draw a line along the diameter of the radial average. + Select the straight line tool. + Optional: To reduce noise, increase the line width to average across several pixels. + Double-click the line tool. + Set Line width (e.g., 3–10 pixels). 3. Plot the intensity profile. + Analyze → Plot Profile
 
-<figure>
 
-<p align="center"> <img src="Fiji_plot_profileA.png" width="200"> <img src="Fiji_plot_profileB.png" width="350"> </p>
-<figcaption align="center"> Figure 5: Plotting an intensity profile from a radial average. (Left) A line (yellow) drawn across the diameter to define the measurement path. (Right) The resulting intensity profile. </figcaption> </figure>
