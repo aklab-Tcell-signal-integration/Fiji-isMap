@@ -1,6 +1,6 @@
 The Fiji and MATLAB based isMap module is based on one main Fiji macro for the image processing and feature extraction named imageProcessing.ijm. This macro is supplemented by two supporting Fiji macros for radial averaging and colocalization analysis and two MATLAB script for data visualization. This section describes their use.
 
-1.1 Data organization
+1.1 Data organization <br>
 
 The imageProcessing.ijm macro requires the data organization illustrated below for automatic parsing: + Images from the same condition should be stored in the same directory. + The images should be stored as individual files with a file format supported by the BioFormats plugin in Fiji. + A list of supported formats can be found here. + Condition folders should be stored in an input directory that the user will select when the macro starts.
 
