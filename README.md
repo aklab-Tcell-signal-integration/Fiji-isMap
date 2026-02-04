@@ -36,12 +36,9 @@ Yes: the macro opens the mask channel and shows the Threshold tool so you can ma
 No: the macro applies an automatic threshold (Default dark) and proceeds without user intervention.
 Set the threshold (if “Check threshold = Yes”) on the mask channel.
 
-Adjust the sliders in the until the desired objects are highlighted, as shown in Figure 1.
+Adjust the sliders in the until the desired objects are highlighted.
 Automatic thresholding is conducted if “Check threshold = No”.
-The results are saved in the output directory. <figure>
-
-<p align="center"> <img src="Fiji_pre_thresholding.png" width="250"> <img src="Fiji_thresholding.png" width="250"> </p>
-<figcaption align="center"> Figure 1: Manual thresholding. (Left) Before and (Right) after adjusting the intensity threshold. </figcaption> </figure>
+The results are saved in the output directory.
 
 1.2.3 Normalization
 If enabled (normExt = Yes), the macro normalizes to the background intensity. The macro estimates the background intensity by:
@@ -50,6 +47,7 @@ Inverting the mask selection to get “everything outside the ROIs”.
 Measuring the mean intensity outside.
 Dividing the image by that mean value (so values become relative to extracellular background).
 Measuring ROI intensities on this normalized image.
+
 1.2.4 Output structure
 For each subfolder inside your Input directory, the macro creates a matching results folder:
 
