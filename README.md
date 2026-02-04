@@ -60,6 +60,7 @@ Output_Directory/
     ...
   res_Condition_B/
     ...
+    
 Inside each "Process_FileName" folder you will typically find: + masks.tif + Binary mask image produced from the mask channel (after thresholding). + ROI.zip + ROI Manager export of all detected objects for that image. This can be reopened later via ROI Manager → More → Open… or dragged and dropped into Fiji. + Per-channel processed images (*.tif) + The macro saves each channel image as a TIFF after background subtraction (and after normalization if normExt=Yes). + Per-ROI cropped images are exported into a subfolder for each channel: + Each file corresponds to a single ROI from ROI Manager.
 
 Process_Image_01/
@@ -89,9 +90,6 @@ Run the macro.
 Select the Input Directory (the folder containing your res_* folders).
 In the Channels dialog, enter the names of the two channels to use for the colocalization measurement.
 The macro will run automatically over all res_Condition* → Process_Image* folders.
-<br>
-
-<br>
 
 1.3.3 Output
 For each Process_* folder analyzed, the macro creates a subfolder named coloc2. Inside, the macro writes one text file per ROI:
@@ -139,6 +137,6 @@ For each individual ROI input file, the macro saves Cell_Channel*_radAv.tif in t
 Once all *_radAv.tif images are generated and re-opened for a condition, the macro creates: + Channel*_radStack.tif: A stack containing all *_radAv.tif images pooled for that condition. + Channel*_radMontage.tif: A montage overview of the stack + Channel*_radTotAv.tif_radTotAv.tif: The condition-level average radial image.
 
 1.4.4 Radial intensity profiles
-The intensity profiles of the individual ROI radial averages and the total average for the condition can be visualized in Fiji. 1. Open the desired radial average .tiff file. 2. Draw a line along the diameter of the radial average. + Select the straight line tool. + Optional: To reduce noise, increase the line width to average across several pixels. + Double-click the line tool. + Set Line width (e.g., 3–10 pixels). 3. Plot the intensity profile. + Analyze → Plot Profile
+The intensity profiles of the individual ROI radial averages and the total average for the condition can be visualized in Fiji. 1. Open the desired radial average .tiff file. 2. Draw a line along the diameter of the radial average. + Select the straight line tool. + Optional: To reduce noise, increase the line width to average across several pixels. + Double-click the line tool. + Set Line width (e.g., 3–10 pixels). 3. Plot the intensity profile by running the drawDiagonal macro
 
 
