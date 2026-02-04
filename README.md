@@ -1,4 +1,4 @@
-The Fiji and MATLAB based isMap module is based on one main Fiji macro for the image processing and feature extraction named imageProcessing.ijm. This macro is supplemented by two supporting Fiji macros for radial averaging and colocalization analysis and two MATLAB script for data visualization. This section describes their use.
+The Fiji and MATLAB based isMap module is based on one main Fiji macro for the image processing and feature extraction named imageProcessing.ijm. This macro is supplemented by three supporting Fiji macros for colocalization analysis, radial averaging and plotting intensity profiles, and two MATLAB script for data visualization. This section describes their use.
 
 1.1 Data organization <br>
 
@@ -153,6 +153,6 @@ Once all *_radAv.tif images are generated and re-opened for a condition, the mac
 
 1.4.4 Radial intensity profiles
 
-The intensity profiles of the individual ROI radial averages and the total average for the condition can be visualized in Fiji. 1. Open the desired radial average .tiff file. 2. Draw a line along the diameter of the radial average. + Select the straight line tool. + Optional: To reduce noise, increase the line width to average across several pixels. + Double-click the line tool. + Set Line width (e.g., 3–10 pixels). 3. Plot the intensity profile by running the drawDiagonal macro
+The intensity profiles of the individual ROI radial averages and the total average for the condition can be visualized in Fiji. 1. Open the desired radial average .tiff file. 2. Plot the intensity profile by running the drawDiagonal macro. 3 Extract the intensity values by clicking Data -> Save Data...
 
 
