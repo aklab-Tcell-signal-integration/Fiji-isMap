@@ -10,7 +10,9 @@ Input_Directory/
     ...
   Condition_B/
     ...
+    
 1.2 Image processing
+
 1.2.1 How the macro works
 For each multichannel microscopy file in your dataset, the macro: 1. Imports the file using Bio-Formats, then crops a fixed region of interest (ROI) to standardize the field of view. 2. Splits channels and renames them based on user input. 3. Performs segmentation on a selected “mask channel” using background subtraction + smoothing + thresholding. 4. For each channel image, performs background subtraction, optionally normalizes intensities to extracellular background, then measures the ROIs. + Choose the measurement parameters in Fiji via Analyze → Set Measurements + It is recommended to include: Area, Standard deviation, Min & max gray value, Shape descriptors, Integrated density, Mean gray value, Median, and Display label 5. Saves (i) segmentation products, (ii) ROI sets, (iii) per-ROI cropped images, and (iv) per-condition summary tables.
 
